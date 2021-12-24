@@ -9,8 +9,12 @@ const Form = (props) => {
   };
   const sibmitHandler = (event) => {
     event.preventDefault();
+    if (dataArrive.trim().length === 0) {
+      alert("Ajoutez un but");
+      return;
+    }
     props.onAddBut(dataArrive);
-    setdataArrive('');
+    setdataArrive("");
   };
   return (
     <form onSubmit={sibmitHandler} className="flex justify-center mt-10">
@@ -18,7 +22,6 @@ const Form = (props) => {
         <h1 className="text-center mb-4">Ecrivez le list</h1>
         <div className="flex space-x-2 p-2 bg-white rounded-md">
           <input
-            required
             value={dataArrive}
             onChange={inputdata}
             type="text"
